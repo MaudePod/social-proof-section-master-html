@@ -1,0 +1,289 @@
+:root {
+    /*Primary*/
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+    /*Neutral*/
+    --dark-grayish-magenta: hsl(303, 10%, 53%);
+    --light-grayish-magenta: hsl(300, 24%, 96%);
+}
+
+@font-face {
+    font-family: 'League Spartan';
+    src: url('./fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf');
+}
+
+body {
+    min-height: 100svh;
+    width: 100svw;
+    container: body / inline-size;
+    margin: 0;
+    font-family: 'League Spartan';
+}
+
+main {
+    min-height: 100cqh;
+    width: 100cqw;
+    display: grid;
+    place-items: center;
+    container: main / inline-size;
+    position: relative;
+    font-weight: 400;
+}
+
+section[class="card"] {
+    background: white;
+    width: 90cqw;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-areas:
+        "intro score"
+        "reviews reviews";
+    grid-template-columns: 1fr 1fr;
+    row-gap: 10%;
+}
+
+section[class="card"] h1 {
+	font-size: 3.5cqi;
+	width: 70%;
+    font-weight: 700;
+
+}
+section[class="intro"] {
+    color: var(--very-dark-magenta);
+    grid-area: intro;
+    width: 80%;
+    place-self: center;
+}
+
+section[class="score"] {
+    grid-area: score;
+    display: grid;
+    place-self: center;
+    row-gap: 10px;
+    height: min-content;
+    width: 100%;
+    z-index: 1;
+    font-weight: 500;
+}
+
+section[class="rating"] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-wrap: nowrap;
+    padding: 2% 5% 2% 5%;
+    background: var(--light-grayish-magenta);
+    color: var(--very-dark-magenta);
+    font-weight: 700;
+    width: min-content;
+    column-gap: 20px;
+    border-radius: 5px;
+}
+
+section[class="rating"]:nth-of-type(1) {
+    margin-left: 25px;
+}
+
+section[class="rating"]:nth-of-type(2) {
+    margin-left: 50px;
+
+}
+
+section[class="rating"]:nth-of-type(3) {
+    margin-left: 75px;
+}
+
+section[class="stars"] {
+    display: flex;
+    height: 17px;
+    gap: 10px;
+}
+
+section[class="source"] {
+    height: min-content;
+    width: 300px;
+}
+
+section[class="rating"]:nth-of-type(3) section[class="source"] {
+    margin-left: 15px;
+}
+
+section[class="review-card-container"] {
+    display: grid;
+    container: review-card-container / inline-size;
+    grid-area: reviews;
+    width: 80cqw;
+    place-self: center;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    column-gap: 30px;
+    font-weight: 500;
+}
+
+section[class="review-card"] {
+    display: grid;
+    place-items: center;
+    background: var(--very-dark-magenta);
+    border-radius: 15px;
+    padding: 10% 5% 10% 5%;
+    color: var(--light-grayish-magenta);
+}
+
+section[class="review-card"]:nth-of-type(1) {
+    grid-column: 1/3;
+    grid-row: 1/4;
+}
+
+section[class="review-card"]:nth-of-type(2) {
+    grid-column: 3/5;
+    grid-row: 2/5;
+    transform: translateY(-25%);
+}
+
+section[class="review-card"]:nth-of-type(3) {
+    grid-column: 5/-1;
+    grid-row: 3/6;
+    transform: translateY(-50%);
+}
+
+section[class="author-profile"] {
+    display: grid;
+    grid-template-columns: 50px auto;
+    column-gap: 10px;
+    grid-template-areas: "img author-name"
+        "img author-info";
+    width: 80%;
+    height: fit-content;
+}
+
+section[class="author-image"] {
+    grid-area: img;
+    height: 50px;
+    width: 50px;
+}
+
+section[class="author-image"] img {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}
+
+section[class="author-name"] {
+    grid-area: author-name;
+}
+
+section[class="author-info"] {
+    grid-area: author-info;
+    color: var(--soft-pink);
+}
+
+svg[class="bg-pattern-top-desktop"] {
+    position: absolute;
+    top: 0;
+    left: -35%;
+    width: 100%;
+    height: 45%;
+}
+
+svg[class="bg-pattern-bottom-desktop"] {
+    position: absolute;
+    bottom: 0;
+    right: -10%;
+    width: 100%;
+    height: 80%;
+}
+
+svg[class="bg-pattern-top-mobile"],
+svg[class="bg-pattern-bottom-mobile"] {
+    display: none;
+}
+
+svg[id="svgs"] {
+    display: none;
+}
+
+@container body (inline-size < 1000px) {
+    main {
+        min-height: 100cqh;
+    }
+
+    section[class="card"] {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "intro"
+            "score"
+            "reviews";
+        font-size: 4.5cqi;
+        gap: 30px;
+    }
+
+    section[class="card"] h1 {
+        font-size: 10.5cqi;
+        text-align: center;
+    	width: unset;
+    }
+
+    section[class="card"] p {
+        text-align: center;
+    }
+
+    section[class="source"] {
+        height: min-content;
+        width: unset;
+    }
+
+    section[class="rating"]:nth-of-type(1),
+    section[class="rating"]:nth-of-type(2),
+    section[class="rating"]:nth-of-type(3) {
+        margin-left: unset;
+    }
+
+    section[class="rating"] {
+        grid-template-columns: 1fr;
+        place-items: center;
+        width: auto;
+        row-gap: 20px;
+    }
+
+    section[class="review-card-container"] {
+        display: grid;
+        container: review-card-container / inline-size;
+        width: 80cqw;
+        place-self: center;
+        grid-template-columns: 1fr;
+        grid-template-rows: unset;
+        row-gap: 30px;
+        margin-bottom: 100px;
+    }
+
+    section[class="review-card"]:nth-of-type(1),
+    section[class="review-card"]:nth-of-type(2),
+    section[class="review-card"]:nth-of-type(3) {
+        grid-column: unset;
+        grid-row: unset;
+        transform: unset;
+    }
+
+    svg[class="bg-pattern-top-desktop"],
+    svg[class="bg-pattern-bottom-desktop"] {
+        display: none;
+    }
+
+    svg[class="bg-pattern-top-mobile"],
+    svg[class="bg-pattern-bottom-mobile"] {
+        display: grid;
+    }
+
+    svg[class="bg-pattern-top-mobile"] {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 10%;
+    }
+
+    svg[class="bg-pattern-bottom-mobile"] {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 15%;
+    }
+}
