@@ -17,7 +17,7 @@ body {
     width: 100svw;
     container: body / inline-size;
     margin: 0;
-    font-family: 'League Spartan';
+    font-family: 'League Spartan',sans-serif;
 }
 
 main {
